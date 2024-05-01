@@ -81,7 +81,3 @@ if ((Get-WindowsFeature -Name 'WDS').InstallState -eq 'Installed') {
         Write-Host "Failed to install WDS."
     }
 }
-
-
-
-
