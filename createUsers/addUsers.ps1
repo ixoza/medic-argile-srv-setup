@@ -63,21 +63,3 @@ foreach ($User in $UserData.Users) {
         Write-Host "User account $UserName already exists."
     }
 }
-
-
-Import-Module ServerManager
-
-# Check if WDS is already installed
-if ((Get-WindowsFeature -Name 'WDS').InstallState -eq 'Installed') {
-    Write-Host "WDS is already installed."
-} else {
-    # Install WDS
-    Add-WindowsFeature -Name 'WDS' -IncludeManagementTools
-
-    # Check if the installation was successful
-    if ((Get-WindowsFeature -Name 'WDS').InstallState -eq 'Installed') {
-        Write-Host "WDS installed successfully."
-    } else {
-        Write-Host "Failed to install WDS."
-    }
-}
